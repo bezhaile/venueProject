@@ -1,0 +1,21 @@
+{
+    "fields": [
+        {
+            "name": "Name of Venue",
+            "type": "string"
+        },
+        {
+            "name": "location",
+            "type": "text"
+        },
+        {
+            "name": "Number of sits",
+            "type": "text"
+        },
+        {
+            "name": "Uploade Images",
+            "type": "file"
+        }
+
+    ]
+}

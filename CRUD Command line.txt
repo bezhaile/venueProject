@@ -1,0 +1,1 @@
+php artisan crud:generate imagesOfVenue --fields_from_file="json_field/fields.json" --view-path=admin --controller-namespace=App\\Http\\Controllers\\Admin --route-group=admin --form-helper=html
