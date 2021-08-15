@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use Illuminate\Support\Facades\Auth;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -25,4 +25,4 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::resource('admin/images-of-venue', 'App\\Http\\Controllers\\Admin\imagesOfVenueController');
+Route::resource('admin/images-of-venue', 'Admin\\imagesOfVenueController');

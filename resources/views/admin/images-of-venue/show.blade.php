@@ -27,7 +27,7 @@
                                     <tr>
                                         <th>ID</th><td>{{ $imagesofvenue->id }}</td>
                                     </tr>
-                                    <tr><th> Name Of Venue </th><td> {{ $imagesofvenue->Name of Venue }} </td></tr><tr><th> Location </th><td> {{ $imagesofvenue->location }} </td></tr><tr><th> Number Of Sits </th><td> {{ $imagesofvenue->Number of sits }} </td></tr>
+                                    <tr><th> Name Of Venue </th><td> {{ $imagesofvenue->Name_of_Venue }} </td></tr><tr><th> Location </th><td> {{ $imagesofvenue->location }} </td></tr><tr><th> Number Of Sits </th><td> {{ $imagesofvenue->Number_of_sits }} </td> <tr> </tr><th> Uploade Images </th><td> {{ $imagesofvenue->Uploade_Images }} </td></tr>
                                 </tbody>
                             </table>
                         </div>

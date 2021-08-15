@@ -25,7 +25,7 @@ class imagesOfVenue extends Model
      *
      * @var array
      */
-    protected $fillable = ['Name of Venue', 'location', 'Number of sits', 'Uploade Images'];
+    protected $fillable = ['Name_of_Venue', 'location', 'Number_of_sits', 'Uploade_Images', 'url'];
 
-    
+
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\\Http\\Controllers\\Admin;
+namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
@@ -21,10 +21,10 @@ class imagesOfVenueController extends Controller
         $perPage = 25;
 
         if (!empty($keyword)) {
-            $imagesofvenue = imagesOfVenue::where('Name of Venue', 'LIKE', "%$keyword%")
+            $imagesofvenue = imagesOfVenue::where('Name_of_Venue', 'LIKE', "%$keyword%")
                 ->orWhere('location', 'LIKE', "%$keyword%")
-                ->orWhere('Number of sits', 'LIKE', "%$keyword%")
-                ->orWhere('Uploade Images', 'LIKE', "%$keyword%")
+                ->orWhere('Number_of_sits', 'LIKE', "%$keyword%")
+                ->orWhere('Uploade_Images', 'LIKE', "%$keyword%")
                 ->latest()->paginate($perPage);
         } else {
             $imagesofvenue = imagesOfVenue::latest()->paginate($perPage);
@@ -52,7 +52,7 @@ class imagesOfVenueController extends Controller
      */
     public function store(Request $request)
     {
-        
+
         $requestData = $request->all();
                 if ($request->hasFile('Uploade Images')) {
             $requestData['Uploade Images'] = $request->file('Uploade Images')
@@ -102,7 +102,7 @@ class imagesOfVenueController extends Controller
      */
     public function update(Request $request, $id)
     {
-        
+
         $requestData = $request->all();
                 if ($request->hasFile('Uploade Images')) {
             $requestData['Uploade Images'] = $request->file('Uploade Images')

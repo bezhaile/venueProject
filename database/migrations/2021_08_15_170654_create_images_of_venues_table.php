@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
 class CreateImagesOfVenuesTable extends Migration
 {
@@ -15,10 +16,11 @@ class CreateImagesOfVenuesTable extends Migration
         Schema::create('images_of_venues', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
-            $table->string('Name of Venue')->nullable();
+            $table->string('Name_of_Venue')->nullable();
             $table->text('location')->nullable();
-            $table->text('Number of sits')->nullable();
-            $table->string('Uploade Images')->nullable();
+            $table->text('Number_of_sits')->nullable();
+            $table->string('Uploade_Images')->nullable();
+            // $table->string('url');
             });
     }
 
