@@ -11,7 +11,7 @@ class imagesOfVenue extends Model
      *
      * @var string
      */
-    protected $table = 'images_of_venues';
+    protected $table = 'imagesOfVenues';
 
     /**
     * The database primary key value.
@@ -25,7 +25,12 @@ class imagesOfVenue extends Model
      *
      * @var array
      */
-    protected $fillable = ['Name_of_Venue', 'location', 'Number_of_sits', 'Uploade_Images', 'url'];
 
+     protected $guarded = [];
+
+    public function venuesPhoto()
+    {
+        return $this->hasMany('App\Models\venuesPhoto');
+    }
 
 }

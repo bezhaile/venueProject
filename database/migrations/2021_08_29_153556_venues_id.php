@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateImagesOfVenuesTable extends Migration
+class VenuesId extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,16 @@ class CreateImagesOfVenuesTable extends Migration
      */
     public function up()
     {
-        Schema::create('imagesOfVenues', function (Blueprint $table) {
+        Schema::create('venuesPhoto', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
-            $table->string('Name_of_Venue')->nullable();
-            $table->text('location')->nullable();
-            $table->text('Number_of_sits')->nullable();
-            // $table->string('Uploade_Images')->nullable();
-            });
+            $table->integer('imagesOfVenues_id')->unsigned();
+            $table->foreign('imagesOfVenues_id')
+            ->references('id')->on('imagesOfVenues')
+            ->onUpdate('cascade')->onDelete('cascade');
+            $table->string('Uploade_Images')->nullable();
+
+        });
     }
 
     /**
@@ -30,6 +32,6 @@ class CreateImagesOfVenuesTable extends Migration
      */
     public function down()
     {
-        Schema::drop('imagesOfVenues');
+        Schema::drop('venuesPhoto');
     }
 }

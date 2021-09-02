@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests;
 
 use App\Models\imagesOfVenue;
+use App\Models\venuesPhoto;
 use Illuminate\Http\Request;
 
 class imagesOfVenueController extends Controller
@@ -53,13 +54,27 @@ class imagesOfVenueController extends Controller
     public function store(Request $request)
     {
 
-        $requestData = $request->all();
-                if ($request->hasFile('Uploade Images')) {
-            $requestData['Uploade Images'] = $request->file('Uploade Images')
-                ->store('uploads', 'public');
-        }
+        $i_ofVenue =  imagesOfVenue::create([
+            'Name_of_Venue' => $request->input('Name_of_Venue'),
+            'location' => $request->input('location'),
+            'Number_of_sits' => $request->input('Number_of_sits'),
 
-        imagesOfVenue::create($requestData);
+        ]);
+
+        $v_photo = new venuesPhoto();
+        // $v_photo->id = 11111;
+        $v_photo->imagesOfVenues_id = $i_ofVenue->id;
+        if ($request->hasFile('Uploade_Images')) {
+            $fileNameWithExtension = $request->file('Uploade_Images')->getClientOriginalName();
+            $fileName = pathinfo($fileNameWithExtension, PATHINFO_FILENAME);
+            $fileExtension = $request->file('Uploade_Images')->getClientOriginalExtension();
+            $fullFileName = $fileName . '-' . time() . '.' . $fileExtension;
+            //  $request->file('Uploade_Images')->move(public_path('images'), $fullFileName);
+        } else {
+            $fullFileName = 'noimage.jpg';
+        }
+        $v_photo->Uploade_Images = $fullFileName;
+        $v_photo->save();
 
         return redirect('admin/images-of-venue')->with('flash_message', 'imagesOfVenue added!');
     }
@@ -104,8 +119,8 @@ class imagesOfVenueController extends Controller
     {
 
         $requestData = $request->all();
-                if ($request->hasFile('Uploade Images')) {
-            $requestData['Uploade Images'] = $request->file('Uploade Images')
+                if ($request->hasFile('Uploade_Images')) {
+            $requestData['Uploade_Images'] = $request->file('Uploade_Images')
                 ->store('uploads', 'public');
         }
 
