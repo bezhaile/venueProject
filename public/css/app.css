@@ -4428,7 +4428,13 @@ input[type=button].btn-block {
 
 .nav-link {
   display: block;
-  padding: 0.5rem 1rem;
+  padding: 5.12px 25px;
+  color: #636b6f;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: .1rem;
+  text-decoration: none;
+  text-transform: uppercase;
 }
 
 .nav-link:hover,
@@ -4531,12 +4537,16 @@ input[type=button].btn-block {
 
 .navbar-brand {
   display: inline-block;
-  padding-top: 0.32rem;
-  padding-bottom: 0.32rem;
   margin-right: 1rem;
-  font-size: 1.125rem;
   line-height: inherit;
   white-space: nowrap;
+  color: #636b6f;
+  padding: 5.12px 25px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: .1rem;
+  text-decoration: none;
+  text-transform: uppercase;
 }
 
 .navbar-brand:hover,
@@ -8663,7 +8673,7 @@ button.bg-dark:focus {
 
 .pt-4,
 .py-4 {
-  padding-top: 1.5rem !important;
+  padding-top: 0rem !important;
 }
 
 .pr-4,
@@ -8673,7 +8683,7 @@ button.bg-dark:focus {
 
 .pb-4,
 .py-4 {
-  padding-bottom: 1.5rem !important;
+  padding-bottom: 0rem !important;
 }
 
 .pl-4,

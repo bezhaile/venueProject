@@ -1,0 +1,118 @@
+html, body {
+                color: #636b6f;
+                font-family: 'Nunito', sans-serif;
+                font-weight: 200;
+                height: 100vh;
+                margin: 0;
+            }
+
+            .full-height {
+                background-color: #636b6f;
+                opacity: 0.75;
+                position: relative;
+	            justify-content: center;
+	            text-align: center;
+                height: 100vh;
+                overflow:  visible;
+            }
+            .full-height::before{
+	            background-image: url("/templates/Venue_cover2.jpg");
+                    background-size: cover;
+                    background-attachment: fixed;
+                    background-position: center center;
+                    background-repeat: no-repeat;
+                    resize: both;
+                    content: "";
+                    display: block;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100% ;
+                    z-index: -2;
+                    opacity: 1;
+            }
+            .flex-center {
+                align-items: center;
+                display: flex;
+                justify-content: center;
+            }
+            .top-right {
+                position: absolute;
+                right: 10px;
+                top: 18px;
+            }
+            .top-left {
+                position: absolute;
+                left: 10px;
+                top: 18px;
+            }
+
+            .content {
+                justify-content: center;
+                text-align: center;
+                display:flex;
+            }
+
+            .title {
+                color: #242424;
+                justify-content: center;
+                text-align: center;
+                font-size: 84px;
+                position: relative;
+            }
+            .title:hover{
+                color: white;
+            }
+            .title::after{
+                content: '';
+                position: absolute;
+                background-color: #636b6f;
+                color: white;
+                top: 0;
+                left: 0;
+                display: block;
+                height: 100%;
+                width: 100%;
+                transform: scaleY(0);
+                transition: .5s;
+                z-index: -1;
+            }
+            .title:hover::after{
+               transform: scaleY(1);
+            }
+
+            .links > a {
+                color: #636b6f;
+                padding: 0 25px;
+                font-size: 13px;
+                font-weight: 600;
+                letter-spacing: .1rem;
+                text-decoration: none;
+                text-transform: uppercase;
+            }
+
+            .m-b-md {
+                margin-top: 20px;
+                margin-bottom: 30px;
+            }
+            .venue-dispaly{
+                background-color: #636b6f;
+                color: white;
+                opacity: 0.75;
+                position: relative;
+	            justify-content: center;
+	            text-align: center;
+                height: 100vh;
+                overflow:  visible;
+            }
+            .fotter{
+                 background-color: #ffffff;
+                color: #636b6f;
+                opacity: 0.75;
+                position: relative;
+	            justify-content: center;
+	            text-align: center;
+                height: 50vh;
+                overflow:  visible;
+            }
