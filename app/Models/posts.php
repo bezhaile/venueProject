@@ -4,14 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class imagesOfVenue extends Model
+class posts extends Model
 {
     /**
      * The database table used by the model.
      *
      * @var string
      */
-    protected $table = 'imagesOfVenues';
+    protected $table = 'posts';
 
     /**
     * The database primary key value.
@@ -28,9 +28,9 @@ class imagesOfVenue extends Model
 
      protected $guarded = [];
 
-    public function venuesPhoto()
+    public function images()
     {
-        return $this->hasMany('App\Models\venuesPhoto');
+        return $this->hasMany('App\Models\images');
     }
 
 }

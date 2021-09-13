@@ -7,9 +7,9 @@
 
             <div class="col-md-9">
                 <div class="card">
-                    <div class="card-header">Edit imagesOfVenue #{{ $imagesofvenue->id }}</div>
+                    <div class="card-header">Create New Post</div>
                     <div class="card-body">
-                        <a href="{{ url('/admin/images-of-venue') }}" title="Back"><button class="btn btn-warning btn-sm"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</button></a>
+                        <a href="{{ url('/admin/post') }}" title="Back"><button class="btn btn-secondary btn-sm"><i class="fa fa-arrow-left" aria-hidden="true"></i></button></a>
                         <br />
                         <br />
 
@@ -21,11 +21,10 @@
                             </ul>
                         @endif
 
-                        <form method="POST" action="{{ url('/admin/images-of-venue/' . $imagesofvenue->id) }}" accept-charset="UTF-8" class="form-horizontal" enctype="multipart/form-data">
-                            {{ method_field('PATCH') }}
+                        <form method="POST" action="{{ url('/admin/post') }}" accept-charset="UTF-8" class="form-horizontal" enctype="multipart/form-data">
                             {{ csrf_field() }}
 
-                            @include ('admin.images-of-venue.form', ['formMode' => 'edit'])
+                            @include ('admin.post.form', ['formMode' => 'create'])
 
                         </form>
 

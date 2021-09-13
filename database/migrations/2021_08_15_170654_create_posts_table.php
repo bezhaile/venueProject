@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateImagesOfVenuesTable extends Migration
+class CreatePostsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateImagesOfVenuesTable extends Migration
      */
     public function up()
     {
-        Schema::create('imagesOfVenues', function (Blueprint $table) {
+        Schema::create('posts', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
             $table->string('Name_of_Venue')->nullable();
@@ -30,6 +30,6 @@ class CreateImagesOfVenuesTable extends Migration
      */
     public function down()
     {
-        Schema::drop('imagesOfVenues');
+        Schema::drop('posts');
     }
 }

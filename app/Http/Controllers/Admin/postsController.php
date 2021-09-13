@@ -5,12 +5,16 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
 
-use App\Models\imagesOfVenue;
-use App\Models\venuesPhoto;
+use App\Models\posts;
+use App\Models\images;
 use Illuminate\Http\Request;
 
-class imagesOfVenueController extends Controller
+class postsController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -22,16 +26,16 @@ class imagesOfVenueController extends Controller
         $perPage = 25;
 
         if (!empty($keyword)) {
-            $imagesofvenue = imagesOfVenue::where('Name_of_Venue', 'LIKE', "%$keyword%")
+            $post = posts::where('Name_of_Venue', 'LIKE', "%$keyword%")
                 ->orWhere('location', 'LIKE', "%$keyword%")
                 ->orWhere('Number_of_sits', 'LIKE', "%$keyword%")
-                ->orWhere('Uploade_Images', 'LIKE', "%$keyword%")
+                ->orWhere('image', 'LIKE', "%$keyword%")
                 ->latest()->paginate($perPage);
         } else {
-            $imagesofvenue = imagesOfVenue::latest()->paginate($perPage);
+            $post = posts::latest()->paginate($perPage);
         }
 
-        return view('admin.images-of-venue.index', compact('imagesofvenue'));
+        return view('admin.post.index', compact('post'));
     }
 
     /**
@@ -41,7 +45,7 @@ class imagesOfVenueController extends Controller
      */
     public function create()
     {
-        return view('admin.images-of-venue.create');
+        return view('admin.post.create');
     }
 
     /**
@@ -54,29 +58,34 @@ class imagesOfVenueController extends Controller
     public function store(Request $request)
     {
 
-        $i_ofVenue =  imagesOfVenue::create([
+        $i_ofVenue =  posts::create([
             'Name_of_Venue' => $request->input('Name_of_Venue'),
             'location' => $request->input('location'),
             'Number_of_sits' => $request->input('Number_of_sits'),
 
         ]);
 
-        $v_photo = new venuesPhoto();
-        // $v_photo->id = 11111;
-        $v_photo->imagesOfVenues_id = $i_ofVenue->id;
-        if ($request->hasFile('Uploade_Images')) {
-            $fileNameWithExtension = $request->file('Uploade_Images')->getClientOriginalName();
+        $picture = new images();
+        // $picture->id = 11111;
+        $picture->posts_id = $i_ofVenue->id;
+        if ($request->hasFile('image')) {
+
+            $fileNameWithExtension = $request->file('image')->getClientOriginalName();
+
             $fileName = pathinfo($fileNameWithExtension, PATHINFO_FILENAME);
-            $fileExtension = $request->file('Uploade_Images')->getClientOriginalExtension();
+
+            $fileExtension = $request->file('image')->getClientOriginalExtension();
+
             $fullFileName = $fileName . '-' . time() . '.' . $fileExtension;
-            //  $request->file('Uploade_Images')->move(public_path('images'), $fullFileName);
+
+             $request->file('image')->move(public_path('/storage/images'), $fullFileName);
         } else {
             $fullFileName = 'noimage.jpg';
         }
-        $v_photo->Uploade_Images = $fullFileName;
-        $v_photo->save();
+        $picture->image = $fullFileName;
+        $picture->save();
 
-        return redirect('admin/images-of-venue')->with('flash_message', 'imagesOfVenue added!');
+        return redirect('admin/post')->with('flash_message', 'posts added!');
     }
 
     /**
@@ -88,9 +97,9 @@ class imagesOfVenueController extends Controller
      */
     public function show($id)
     {
-        $imagesofvenue = imagesOfVenue::findOrFail($id);
+        $post = posts::findOrFail($id);
 
-        return view('admin.images-of-venue.show', compact('imagesofvenue'));
+        return view('admin.post.show', compact('post'));
     }
 
     /**
@@ -102,9 +111,9 @@ class imagesOfVenueController extends Controller
      */
     public function edit($id)
     {
-        $imagesofvenue = imagesOfVenue::findOrFail($id);
+        $post = posts::findOrFail($id);
 
-        return view('admin.images-of-venue.edit', compact('imagesofvenue'));
+        return view('admin.post.edit', compact('post'));
     }
 
     /**
@@ -119,15 +128,15 @@ class imagesOfVenueController extends Controller
     {
 
         $requestData = $request->all();
-                if ($request->hasFile('Uploade_Images')) {
-            $requestData['Uploade_Images'] = $request->file('Uploade_Images')
+                if ($request->hasFile('image')) {
+            $requestData['image'] = $request->file('image')
                 ->store('uploads', 'public');
         }
 
-        $imagesofvenue = imagesOfVenue::findOrFail($id);
-        $imagesofvenue->update($requestData);
+        $post = posts::findOrFail($id);
+        $post->update($requestData);
 
-        return redirect('admin/images-of-venue')->with('flash_message', 'imagesOfVenue updated!');
+        return redirect('admin/post')->with('flash_message', 'posts updated!');
     }
 
     /**
@@ -139,8 +148,8 @@ class imagesOfVenueController extends Controller
      */
     public function destroy($id)
     {
-        imagesOfVenue::destroy($id);
+        posts::destroy($id);
 
-        return redirect('admin/images-of-venue')->with('flash_message', 'imagesOfVenue deleted!');
+        return redirect('admin/post')->with('flash_message', 'posts deleted!');
     }
 }

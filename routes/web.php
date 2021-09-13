@@ -13,9 +13,7 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'frontPageController@index')->name('welcome');
 
 Auth::routes();
 
@@ -25,4 +23,4 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::resource('admin/images-of-venue', 'Admin\\imagesOfVenueController');
+Route::resource('admin/post', 'Admin\\postsController');

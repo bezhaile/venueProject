@@ -1,12 +1,13 @@
 html, body {
                 color: #636b6f;
                 font-family: 'Nunito', sans-serif;
-                font-weight: 200;
+                font-weight:800;
                 height: 100vh;
                 margin: 0;
             }
 
             .full-height {
+                font-weight: 200;
                 background-color: #636b6f;
                 opacity: 0.75;
                 position: relative;
@@ -98,13 +99,15 @@ html, body {
             }
             .venue-dispaly{
                 background-color: #636b6f;
-                color: white;
+                color: black;
+                font-weight: bold;
                 opacity: 0.75;
                 position: relative;
 	            justify-content: center;
 	            text-align: center;
                 height: 100vh;
                 overflow:  visible;
+                padding-top: 20px;
             }
             .fotter{
                  background-color: #ffffff;

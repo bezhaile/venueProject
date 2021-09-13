@@ -3,9 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\venuesPhoto;
-use App\Models\imagesOfVenue;
-
+use App\Models\posts;
+use App\Models\images;
 class frontPageController extends Controller
 {
     // To Display the entire venue list.
@@ -13,15 +12,10 @@ class frontPageController extends Controller
 
 
     // To Show the selected venue
-    public function showSingleVenue($id)
+    public function index(Request $id )
     {
-        $imagesOfVenue = imagesOfVenue::find($id);
+        $posts = posts::with('images')->get();
 
-        $records = venuesPhoto::where('imagesOfVenues_id', $imagesOfVenue->id)
-        ->orderBy('created_at', 'DESC')->paginate(30);
-
-        $venue = imagesOfVenue::where('id', $imagesOfVenue->id)->get();
-
-        return view('showSingleVenue', compact('records', 'venue'));
+        return view('welcome', compact('posts'));
     }
 }
