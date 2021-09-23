@@ -6,16 +6,16 @@
             <div id="app" class="">
                 <div class="content">
                     <div class="title m-b-md">
-                        The Venue Project
+                        The Space Addis Project
                     </div>
                 </div>
             </div>
         </div>
         {{-- Vebues page --}}
-        <div class="container-fluid venue-dispaly">
+        <div class="container-fluid venue-dispaly" id="2">
             <div class="card-group">
                 @foreach ($posts as $post)
-                    <div class="card col-md-3" style="width: 18rem; margin:10px">
+                    <div class="card col-md-3" style="width: 18rem; margin:2px">
                             @foreach ($post->images as $img)
                                 <img class="card-img-top" src="{{ asset('storage/images/'.$img->image) }}" width="286px" height="180px" alt="">
                             @endforeach
@@ -25,15 +25,21 @@
                                             <li class="list-group-item"> Location: {{ $post->location }}</li>
                                             <li class="list-group-item">Number of Sits: {{ $post->Number_of_sits }}</li>
                                         </ul>
-                                    <a href="#" class="btn btn-secondary">Vist</a>
+                                    <a href="tel:{{ $post->Name_of_Venue }}" class="btn btn-secondary">Call</a>
                                 </div>
 
                     </div>
                 @endforeach
             </div>
+            {{ $posts->onEachSide(5)->links() }}
         </div>
-        <div class="container-fluid flex-center fotter">
-            <h1>Footer here</h1>
+        <div id="3" class="container fotter">
+            <p>Addis ababa is a huge city with many venue options for people’s event needs. But finding a venue that is suitable for one’s needs among the thousands of venues in
+                the city can be overwhelming and time consuming. This is where Space Addis comes
+                in handy. Space Addis is an online venue booking system where people who want to
+                organize events are presented with a wide variety of venue options from the comfort
+                of their home. Users can pick a venue that caters to their venue needs with a filtering
+                system that makes their experience customized and easy.</p>
         </div>
         <script src="{{ asset('js/app.js') }}"></script>
 @endsection

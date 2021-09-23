@@ -110,7 +110,9 @@ html, body {
                 padding-top: 20px;
             }
             .fotter{
-                 background-color: #ffffff;
+                top: 10px;
+                font-size: 18px;
+                background-color: initial;
                 color: #636b6f;
                 opacity: 0.75;
                 position: relative;

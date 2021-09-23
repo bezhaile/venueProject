@@ -7,7 +7,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <script>window.Laravel = { csrfToken : '{{ csrf_token() }}' }'</script>
 
-    <title>Venue Project</title>
+    <title>Space Addis</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -26,7 +26,7 @@
         <nav class="navbar navbar-expand-md navbar-light bg-white">
             <div class="container-fluid">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ ('Venue Project') }}
+                    {{ ('Space Addis') }}
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -36,7 +36,10 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="#">{{ __('Venues') }}</a>
+                            <a class="nav-link" href="#2">{{ __('Venues') }}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#3">{{ __('About Us') }}</a>
                         </li>
                     </ul>
 
@@ -80,5 +83,31 @@
             @yield('content')
         </main>
     </div>
+    <script>
+        $(document).ready(function () {
+    // Add smooth scrolling to all links
+    $("a").on('click', function (event) {
+
+        // Make sure this.hash has a value before overriding default behavior
+        if (this.hash !== "") {
+            // Prevent default anchor click behavior
+            event.preventDefault();
+
+            // Store hash
+            var hash = this.hash;
+
+            // Using jQuery's animate() method to add smooth page scroll
+            // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+            $('html, body').animate({
+                scrollTop: $(hash).offset().top
+            }, 800, function () {
+
+                // Add hash (#) to URL when done scrolling (default click behavior)
+                window.location.hash = hash;
+            });
+        } // End if
+    });
+});
+        </script>
 </body>
 </html>

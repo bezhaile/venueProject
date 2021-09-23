@@ -30,14 +30,18 @@
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th>#</th><th>Name Of Venue</th><th>Location</th><th>Number Of Sits</th><th>Actions</th>
+                                        <th>Venue</th><th>Location</th><th>Number Of Sits</th> <th>Image</th><th>Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                 @foreach($post as $item)
                                     <tr>
-                                        <td>{{ $loop->iteration }}</td>
                                         <td>{{ $item->Name_of_Venue }}</td><td>{{ $item->location }}</td><td>{{ $item->Number_of_sits }}</td>
+
+                                            @foreach ($item->images as $img )
+                                              <td> <img class="card-img-top" src="{{ asset('storage/images/'.$img->image) }}" width="50px" height="50px" alt=""></td>
+                                            @endforeach
+
                                         <td>
                                             <a href="{{ url('/admin/post/' . $item->id) }}" title="View Post"><button class="btn btn-secondary btn-sm"><i class="far fa-eye"></i> </button></a>
                                             <a href="{{ url('/admin/post/' . $item->id . '/edit') }}" title="Edit Post"><button class="btn btn-primary btn-sm"><i class="fas fa-edit"></i> </button></a>
