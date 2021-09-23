@@ -105,7 +105,7 @@ html, body {
                 position: relative;
 	            justify-content: center;
 	            text-align: center;
-                height: 100vh;
+                min-height: 150vh;
                 overflow:  visible;
                 padding-top: 20px;
             }
