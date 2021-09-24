@@ -8,7 +8,7 @@ html, body {
 
             .full-height {
                 font-weight: 200;
-                background-color: #636b6f;
+                background-color: #e2e2e2;
                 opacity: 0.75;
                 position: relative;
 	            justify-content: center;
@@ -56,6 +56,7 @@ html, body {
             }
 
             .title {
+                padding: 10px;
                 color: #242424;
                 justify-content: center;
                 text-align: center;
@@ -69,18 +70,19 @@ html, body {
                 content: '';
                 position: absolute;
                 background-color: #636b6f;
+                border-radius: 5px;
                 color: white;
                 top: 0;
                 left: 0;
                 display: block;
                 height: 100%;
                 width: 100%;
-                transform: scaleY(0);
-                transition: .5s;
+                transform: scaleX(0);
+                transition: .2s;
                 z-index: -1;
             }
             .title:hover::after{
-               transform: scaleY(1);
+               transform: scaleX(1);
             }
 
             .links > a {
@@ -98,20 +100,18 @@ html, body {
                 margin-bottom: 30px;
             }
             .venue-dispaly{
-                background-color: #636b6f;
+                background-color: #f1f1f1;
                 color: black;
                 font-weight: bold;
                 opacity: 0.75;
                 position: relative;
 	            justify-content: center;
 	            text-align: center;
-                min-height: 150vh;
                 overflow:  visible;
                 padding-top: 20px;
             }
             .fotter{
                 top: 10px;
-                font-size: 18px;
                 background-color: initial;
                 color: #636b6f;
                 opacity: 0.75;

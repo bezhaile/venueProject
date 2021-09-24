@@ -14,7 +14,7 @@ class frontPageController extends Controller
     // To Show the selected venue
     public function index(Request $id )
     {
-        $posts = posts::with('images')->paginate(10);
+        $posts = posts::with('images')->paginate(8);
 
         return view('welcome', compact('posts'));
     }

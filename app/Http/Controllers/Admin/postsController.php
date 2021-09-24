@@ -85,7 +85,7 @@ class postsController extends Controller
         $picture->image = $fullFileName;
         $picture->save();
 
-        return redirect('admin/post')->with('flash_message', 'posts added!');
+        return view('admin.post.create')->with('flash_message', 'posts added!');
     }
 
     /**

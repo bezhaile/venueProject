@@ -15,7 +15,7 @@
         <div class="container-fluid venue-dispaly" id="2">
             <div class="card-group">
                 @foreach ($posts as $post)
-                    <div class="card col-md-3" style="width: 18rem; margin:2px">
+                    <div class="card col-md-3" style="min-width: 20rem; margin:2px">
                             @foreach ($post->images as $img)
                                 <img class="card-img-top" src="{{ asset('storage/images/'.$img->image) }}" width="286px" height="180px" alt="">
                             @endforeach
@@ -31,7 +31,7 @@
                     </div>
                 @endforeach
             </div>
-            {{ $posts->onEachSide(5)->links() }}
+            <div class="flex-center">{{ $posts->onEachSide(5)->links() }} </div>
         </div>
         <div id="3" class="container fotter">
             <p>Addis ababa is a huge city with many venue options for people’s event needs. But finding a venue that is suitable for one’s needs among the thousands of venues in
@@ -41,5 +41,4 @@
                 of their home. Users can pick a venue that caters to their venue needs with a filtering
                 system that makes their experience customized and easy.</p>
         </div>
-        <script src="{{ asset('js/app.js') }}"></script>
 @endsection
