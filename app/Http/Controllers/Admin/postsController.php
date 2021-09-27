@@ -23,13 +23,12 @@ class postsController extends Controller
     public function index(Request $request)
     {
         $keyword = $request->get('search');
-        $perPage = 25;
+        $perPage = 8;
 
         if (!empty($keyword)) {
             $post = posts::where('Name_of_Venue', 'LIKE', "%$keyword%")
                 ->orWhere('location', 'LIKE', "%$keyword%")
                 ->orWhere('Number_of_sits', 'LIKE', "%$keyword%")
-                ->orWhere('image', 'LIKE', "%$keyword%")
                 ->latest()->paginate($perPage);
         } else {
             $post = posts::latest()->paginate($perPage);
@@ -62,6 +61,8 @@ class postsController extends Controller
             'Name_of_Venue' => $request->input('Name_of_Venue'),
             'location' => $request->input('location'),
             'Number_of_sits' => $request->input('Number_of_sits'),
+            'price' => $request->input('price'),
+            'tel' => $request->input('tel')
 
         ]);
 

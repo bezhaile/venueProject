@@ -27,6 +27,8 @@
                                     <tr><th> Name Of Venue </th><td> {{ $post->Name_of_Venue }} </td></tr>
                                     <tr><th> Location </th><td> {{ $post->location }} </td></tr>
                                     <tr><th> Number Of Sits </th><td> {{ $post->Number_of_sits }} </td></tr>
+                                    <tr><th> Price </th><td> {{ $post->price }} </td></tr>
+                                    <tr><th> Tel </th><td> {{ $post->tel }} </td></tr>
                                 </tbody>
                             </table>
                         </div>

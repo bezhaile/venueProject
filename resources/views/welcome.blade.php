@@ -24,8 +24,9 @@
                                         <ul class="list-group list-group-flush">
                                             <li class="list-group-item"> Location: {{ $post->location }}</li>
                                             <li class="list-group-item">Number of Sits: {{ $post->Number_of_sits }}</li>
+                                            <li class="list-group-item">price: {{ $post->price }}</li>
                                         </ul>
-                                    <a href="tel:{{ $post->Name_of_Venue }}" class="btn btn-secondary">Call</a>
+                                    <a href="tel:{{ $post->tel }}" class="btn btn-secondary">Call</a>
                                 </div>
 
                     </div>
